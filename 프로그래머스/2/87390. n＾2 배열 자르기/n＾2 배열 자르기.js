@@ -5,8 +5,7 @@ function solution(n, left, right) {
         let i = Math.floor(k / n);
         let j = k % n;
         arr.push(Math.max(i + 1, j + 1));
-}
-
+    }
     
     return arr;
 }
