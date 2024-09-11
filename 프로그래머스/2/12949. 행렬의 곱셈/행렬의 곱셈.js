@@ -1,26 +1,9 @@
 function multMat(matA, matB) {
-    let result = [];
-    let rowsA = matA.length;
-    let colsA = matA[0].length;
-    let colsB = matB[0].length;
-
-    // result 초기화
-    for (let i = 0; i < rowsA; i++) {
-        result[i] = [];
-        for (let j = 0; j < colsB; j++) {
-            result[i][j] = 0;
-        }
-    }
-
-    // 행렬 곱셈 연산
-    for (let i = 0; i < rowsA; i++) {
-        for (let j = 0; j < colsB; j++) {
-            for (let k = 0; k < colsA; k++) {
-                result[i][j] += matA[i][k] * matB[k][j];
-            }
-        }
-    }
-    return result;
+    return matA.map(rowA => 
+        matB[0].map((_, i) => 
+            rowA.reduce((sum, val, j) => sum + val * matB[j][i], 0)
+        )
+    );
 }
 
 function solution(arr1, arr2) {
