@@ -17,17 +17,22 @@ function isPrime(n) {
 
 function solution(n, k) {
     const converted = n.toString(k);
+    const len = converted.length;
     let cnt = 0;
     let left = 0;
     let right = 0;
-    const len = converted.length;
     
     while(right <= converted.length) {
         // 윈도우의 끝이거나 현재 right가 0일 경우
         if(right === len || converted[right] === '0') {
-            if(isPrime(converted.slice(left, right))){
+            
+            // 필요한 부분만 slice
+            const slicedNum = converted.slice(left, right);
+            // ''인 경우가 생길 수도 있음
+            if(isPrime(slicedNum) && slicedNum !== '') {
                 cnt++;
             }
+            // 윈도우 이동
             right++;
             left = right;
         }
