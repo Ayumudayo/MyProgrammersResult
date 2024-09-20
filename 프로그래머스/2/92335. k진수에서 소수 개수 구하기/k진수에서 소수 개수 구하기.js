@@ -1,7 +1,3 @@
-// k진법으로 변환
-// 윈도우를 옮겨가며 소수 확인, 0은 포함하지 않음
-// 판별 후 윈도우 시작지점 이동
-
 function isPrime(n) {
     if (n <= 1) return false;
     if (n <= 3) return true;
@@ -17,28 +13,12 @@ function isPrime(n) {
 
 function solution(n, k) {
     const converted = n.toString(k);
-    const len = converted.length;
+    const splited = converted.split('0');
     let cnt = 0;
-    let left = 0;
-    let right = 0;
     
-    while(right <= converted.length) {
-        // 윈도우의 끝이거나 현재 right가 0일 경우
-        if(right === len || converted[right] === '0') {
-            
-            // 필요한 부분만 slice
-            const slicedNum = converted.slice(left, right);
-            // ''인 경우가 생길 수도 있음
-            if(isPrime(slicedNum) && slicedNum !== '') {
-                cnt++;
-            }
-            // 윈도우 이동
-            right++;
-            left = right;
-        }
-        else {
-            right++;
-        }
+    for (let num of splited) {
+        if (num === '') continue;
+        if (isPrime(num)) cnt++;
     }
     
     return cnt;
