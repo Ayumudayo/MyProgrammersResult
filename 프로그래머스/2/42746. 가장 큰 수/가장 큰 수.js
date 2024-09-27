@@ -15,7 +15,7 @@ function solution(numbers) {
         return 0;
     });
 
-    // 모든 숫자가 '0'인 경우 '0'을 반환
+    // 모든 숫자가 0인 경우 0을 반환
     if (strNums[0] === '0') {
         return '0';
     }
