@@ -14,25 +14,25 @@ function solution(rows, columns, queries) {
     let temp = matrix[x1][y1];
     let minValue = temp;
 
-    // 왼쪽 (상 > 하 스왑)
+    // 왼쪽 (상 > 하)
     for (let i = x1; i < x2; i++) {
       matrix[i][y1] = matrix[i + 1][y1];
       minValue = Math.min(minValue, matrix[i][y1]);
     }
 
-    // 아래쪽 (좌 > 우 스왑)
+    // 아래쪽 (좌 > 우)
     for (let i = y1; i < y2; i++) {
       matrix[x2][i] = matrix[x2][i + 1];
       minValue = Math.min(minValue, matrix[x2][i]);
     }
 
-    // 오른쪽 (하 > 상 스왑)
+    // 오른쪽 (하 > 상)
     for (let i = x2; i > x1; i--) {
       matrix[i][y2] = matrix[i - 1][y2];
       minValue = Math.min(minValue, matrix[i][y2]);
     }
 
-    // 위쪽 (우 > 좌 스왑)
+    // 위쪽 (우 > 좌)
     for (let i = y2; i > y1; i--) {
       matrix[x1][i] = matrix[x1][i - 1];
       minValue = Math.min(minValue, matrix[x1][i]);
