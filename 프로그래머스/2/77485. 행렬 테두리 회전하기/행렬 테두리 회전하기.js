@@ -1,5 +1,3 @@
-
-
 function solution(rows, columns, queries) {
   let matrix = Array.from({ length: rows }, (_, i) =>
     Array.from({ length: columns }, (_, j) => i * columns + j + 1)
