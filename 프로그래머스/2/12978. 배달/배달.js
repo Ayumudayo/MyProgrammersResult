@@ -1,7 +1,7 @@
 // 노드가 N개인 무방향 그래프
 // 노드A에서 나머지 N-1개의 노드에 대해 비용이 K 이하인 개수
 
-function solution(N, road, k) {
+function solution(N, road, K) {
     const graph = Array.from({ length: N + 1 }, () => []);
     const distances = Array(N + 1).fill(Infinity);
     const queue = [];
@@ -38,6 +38,6 @@ function solution(N, road, k) {
     }
 
     // K 이하로 도달 가능한 마을의 수 계산
-    const answer = distances.filter(distance => distance <= k).length;
+    const answer = distances.filter(distance => distance <= K).length;
     return answer;
 }
