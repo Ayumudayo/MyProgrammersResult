@@ -18,7 +18,7 @@ function solution(maps) {
   }
 
   let answer = [];
-  maps = maps.map(row => row.split('')); // 문자열 배열을 2차원 리스트로 변환
+  maps = maps.map(row => row.split(''));
 
   for (let i = 0; i < maps.length; i++) {
     for (let j = 0; j < maps[0].length; j++) {
