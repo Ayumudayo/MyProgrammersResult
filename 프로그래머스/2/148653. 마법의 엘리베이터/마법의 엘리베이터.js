@@ -1,6 +1,3 @@
-// 음수층은 없음
-// 하지만 음수층이 있는 것 처럼 생각 가능
-
 function solution(storey) {
     let answer = 0;
     
